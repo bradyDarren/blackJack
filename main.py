@@ -74,7 +74,6 @@ if user_input == "s":
     while hit_me != "p":
         user_hand = hit(card_deck)
         card_count += 1
-
         if user_hand["rank"] == "A":
             adjusted_ace_value = ace_value(user_hand, user_score)
             user_score += adjusted_ace_value
@@ -89,7 +88,6 @@ if user_input == "s":
             else:
                 print("BUST, HOUSE WINS")
                 break
-
         else:
             user_score += user_hand["value"]
             print("User card #", card_count, ":", user_hand["rank"], "of", user_hand["suit"], "value:",
@@ -102,7 +100,7 @@ if user_input == "s":
                 print("BUSTED, HOUSE WINS")
                 break
 
-while house_score <= user_score <= top_score:
+while  user_score >= house_score < top_score:
     house_hand = hit(card_deck)
     card_count = 0
     card_count += 1
@@ -118,7 +116,6 @@ while house_score <= user_score <= top_score:
         if house_score > top_score:
             print("BUST, USER WINS")
             break
-
     else:
         house_score += house_hand["value"]
         print("House card #", card_count, ":", house_hand["rank"], "of", house_hand["suit"], "value:", house_hand["value"],
@@ -127,10 +124,9 @@ while house_score <= user_score <= top_score:
             print("BUST, USER WINS")
             break
 
-if user_score < house_score < top_score:
-    print()
-    print("HOUSE WINS!!!")
-
-elif house_score < user_score < top_score:
-    print()
-    print("CHALLENGER WINS")
+# if user_score < house_score < top_score:
+#     print()
+#     print("HOUSE WINS!!!")
+# elif house_score < user_score < top_score:
+#     print()
+#     print("CHALLENGER WINS")
